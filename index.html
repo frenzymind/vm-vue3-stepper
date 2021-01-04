@@ -12,8 +12,12 @@
         <h1>План по изучению Vue.js</h1>
 
         <div class="steps">
-          <div class="steps-content"></div>
-          <ul class="steps-list"></ul>
+          <div class="steps-content">{{steps[activeIndex].text}}</div>
+          <ul class="steps-list">
+            <li class="steps-item" v-for="(step, i) in steps">
+              <span>{{i}}</span> {{step.title}}
+            </li>
+          </ul>
           <div>
             <button class="btn">Назад</button>
             <button class="btn primary">Вперед</button>
