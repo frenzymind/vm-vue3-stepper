@@ -20,10 +20,14 @@
           </ul>
           <div>
             <button class="btn" :disabled="isBackButtonDisable" @click="prev">
-              Назад
+              {{ stepsFinished ? 'Начать заного' : 'Назад' }}
             </button>
-            <button class="btn primary" v-if="!isLastStep" @click="next">
-              Вперед
+            <button
+              class="btn primary"
+              @click="nextOrFinish"
+              v-if="!stepsFinished"
+            >
+              {{ isLastStep ? 'Закончить' : 'Вперед' }}
             </button>
           </div>
         </div>

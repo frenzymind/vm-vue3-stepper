@@ -6,6 +6,7 @@ const App = {
   data() {
     return {
       activeIndex: 0, // то, что позволяет определить текущий активный шаг
+      stepsFinished: false,
       steps: [
         {
           title: 'Основы',
@@ -50,13 +51,22 @@ const App = {
       return classes.join(' ');
     },
     prev() {
-      this.activeIndex--;
+      if (this.stepsFinished) {
+        this.reset();
+      } else {
+        this.activeIndex--;
+      }
     },
     reset() {
-      // начать заново
+      this.stepsFinished = false;
+      this.activeIndex = 0;
     },
-    next() {
-      this.activeIndex++;
+    nextOrFinish() {
+      if (this.isLastStep) {
+        this.stepsFinished = true;
+      } else {
+        this.activeIndex++;
+      }
     },
     setActive(idx) {
       // когда нажимаем на определенный шаг
