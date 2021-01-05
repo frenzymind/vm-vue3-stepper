@@ -49,7 +49,7 @@ const App = {
     prev() {
       if (this.stepsFinished) {
         this.reset();
-      } else {
+      } else if (this.activeIndex !== 0) {
         this.activeIndex--;
       }
     },
@@ -70,7 +70,7 @@ const App = {
   },
   computed: {
     isLastStep() {
-      return this.activeIndex === this.steps.length - 1 ? true : false;
+      return this.activeIndex === this.steps.length - 1;
     },
     isBackButtonDisable() {
       return this.activeIndex === 0;
