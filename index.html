@@ -14,7 +14,7 @@
         <div class="steps">
           <div class="steps-content">{{steps[activeIndex].text}}</div>
           <ul class="steps-list">
-            <li class="steps-item" v-for="(step, i) in steps">
+            <li :class="getStepClasses(i)" v-for="(step, i) in steps">
               <span>{{i}}</span> {{step.title}}
             </li>
           </ul>
