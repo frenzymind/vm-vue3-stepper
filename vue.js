@@ -50,19 +50,25 @@ const App = {
       return classes.join(' ');
     },
     prev() {
-      // когда нажимаем кнопку назад
+      this.activeIndex--;
     },
     reset() {
       // начать заново
     },
-    nextOfFinish() {
-      // кнопка вперед или закончить
+    next() {
+      this.activeIndex++;
     },
     setActive(idx) {
       // когда нажимаем на определенный шаг
     },
   },
   computed: {
+    isLastStep() {
+      return this.activeIndex === this.steps.length - 1 ? true : false;
+    },
+    isBackButtonDisable() {
+      return this.activeIndex === 0;
+    },
     // тут стоит определить несколько свойств:
     // 1. текущий выбранный шаг
     // 2. выключена ли кнопка назад

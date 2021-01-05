@@ -19,8 +19,12 @@
             </li>
           </ul>
           <div>
-            <button class="btn">Назад</button>
-            <button class="btn primary">Вперед</button>
+            <button class="btn" :disabled="isBackButtonDisable" @click="prev">
+              Назад
+            </button>
+            <button class="btn primary" v-if="!isLastStep" @click="next">
+              Вперед
+            </button>
           </div>
         </div>
       </div>
