@@ -14,7 +14,11 @@
         <div class="steps">
           <div class="steps-content">{{steps[activeIndex].text}}</div>
           <ul class="steps-list">
-            <li :class="getStepClasses(i)" v-for="(step, i) in steps">
+            <li
+              :class="getStepClasses(i)"
+              v-for="(step, i) in steps"
+              @click="setActive(i)"
+            >
               <span>{{i}}</span> {{step.title}}
             </li>
           </ul>

@@ -64,7 +64,9 @@ const App = {
         this.activeIndex++;
       }
     },
-    setActive(idx) {},
+    setActive(idx) {
+      this.activeIndex = idx;
+    },
   },
   computed: {
     isLastStep() {
